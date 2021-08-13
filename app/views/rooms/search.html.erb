@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Results</h2>
+  <h2>検索結果</h2>
   <div class="result">
     <% @results.each do |room| %>
     <div class="room_box">
@@ -9,15 +9,15 @@
       </div>
       <div class="room_overviews">
         <div class="room_overview form_group">
-          <label>Name: </label>
+          <label>ルーム名: </label>
           <%= link_to room.name, room_path(room.id) %>
         </div>
         <div class="room_overview form_group">
-          <label>Fee: </label>
-          <%= link_to room.fee, room_path(room.id) %> yen/day
+          <label>料金: </label>
+          <%= link_to room.fee, room_path(room.id) %> 円/日
         </div>
         <div class="room_overview form_group">
-          <label>Address: </label>
+          <label>住所: </label>
           <%= link_to room.address, room_path(room.id) %>
         </div>
       </div>

@@ -1,15 +1,15 @@
 <div class="container">
-  <h2>Edit your profile</h2>
+  <h2>プロフィール編集</h2>
   <%= form_with model: @profile, local: true do |f| %>
     <div style="margin-top: 30px;">
       <%= f.attachment_field :image %><br/>
     </div>
     <div class="form_group">
-      <%= f.label :name %><br/>
+      <%= f.label :名前 %><br/>
       <%= f.text_field :name %>
     </div>
     <div class="form_group">
-      <%= f.label :introduction %><br/>
+      <%= f.label :プロフィール紹介 %><br/>
       <%= f.text_area :introduction %>
     </div>
     <div class="submit_block">
@@ -17,6 +17,6 @@
     </div>
   <% end %>
   <div class="link">
-    <%= link_to "Back", :back %>
+    <%= link_to "戻る", :back %>
   </div>
 </div>
