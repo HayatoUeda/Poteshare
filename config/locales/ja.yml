@@ -1,0 +1,23 @@
+ja:
+  room:
+    show:
+      start_date: "開始日"
+  activerecord:
+    models:
+      user: "ユーザー"
+      room: "ルーム"
+    attributes:
+      user:
+        name: "名前"
+        email: "Eメール"
+        password: "パスワード"
+        password_confirmation: "パスワード確認用"
+        remember_me: "パスワードを記憶"
+      room:
+        Name: "ルーム名"
+        Introduction: "ルーム紹介"
+        Fee: "料金"
+        Address: "住所"
+        Start_day: "開始日"
+        End_day: "終了日"
+        People: "人数"

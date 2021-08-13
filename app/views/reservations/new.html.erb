@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>予約内容確認</h2>
+  <%= form_with url: room_reservations_path(@reservation.room_id) do |f| %>
+    <div class="form_group">
+      <label>料金:</label><br/>
+      <%= @reservation.room.fee %> 円/人/日
+    </div>
+    <div class="form_group">
+      <label>開始日:</label><br/>
+      <%= f.text_field :start_date, value: params[:start_date], :readonly => true %>
+    </div>
+    <div class="form_group">
+      <label>終了日:</label><br/>
+      <%= f.text_field :end_date, value: params[:end_date], :readonly => true %>
+    </div>
+    <div class="form_group">
+      <label>滞在日:</label><br/>
+      <%= @reservation.days %> night
+    </div>
+    <div class="form_group">
+      <label>人数:</label><br/>
+      <%= f.number_field :people, value: params[:people], :readonly => true %>
+    </div>
+    <div class="form_group">
+      <label>合計金額:</label><br/>
+      <%= @reservation.total %> yen
+    </div>
+    <div class="submit_block">
+      <%= f.submit "予約を確定" %>
+    </div>
+  <% end %>
+  <div class="link">
+    <%= link_to "戻る", :back %>
+  </div>
+</div> 

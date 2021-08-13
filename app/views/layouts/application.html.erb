@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PoteShare</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" width="215" height="66" >
+  </head>
+
+  <body>
+    <div>
+      <nav class="navbar" style="background-color: black">
+        <div class="navbar-header" style="padding: 10px;">
+          
+          <div class="navbar-left" style="display: flex; align-items: center;">
+            <div>
+              <a href="">
+                <%= link_to image_tag('https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png', :height =>'40'),root_path %>
+              </a>
+            </div>
+            <div class="header-search">
+              <div class="search-box">
+                <div class="search_1">
+                  <i class="fas"></i>
+                  <%= search_form_for @q, url: search_rooms_path do |f| %>
+                    <%= f.search_field :address_cont, placeholder: 'エリア' %>
+                  <% end %>
+                </div>
+                <div class="search_2">
+                  <i class="fas"></i>
+                  <%= search_form_for @q, url: search_rooms_path do |f| %>
+                    <%= f.search_field :address_or_name_or_room_introduction_cont, placeholder: 'キーワード' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-right">
+            <div class="navbar-sign-in">
+              <% if user_signed_in? %>
+                <strong strong>
+                  <div style="position: absolute; right: 170px; top: 12px; width: max-content;">
+                    <%= link_to current_user.name, root_path %>
+                  </div>
+                </strong>
+                <div class="nav_menu">
+                  <label for="menu_bar01">メニュー</label>
+                  <input type="checkbox" id="menu_bar01" />
+                  <ul id="links01">
+                      <li><%= link_to "ルーム登録", new_room_path %></li>
+                      <li><%= link_to "予約済みルーム一覧", reservations_path %></li>
+                      <li><%= link_to "登録済みルーム一覧" , rooms_path %></li>
+                      <li><%= link_to "設定", user_path(current_user.id) %></li>
+                      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </div>
+              <% else %>
+                <div style="position: absolute; right: 90px; top: 5px; width: max-content;">
+                  <%= link_to("ログイン", new_user_session_path, { class: "btn btn-primary"}) %>
+                </div>
+                <div style="position: absolute; right: 5px; top: 5px; width: max-content;">
+                  <%= link_to("登録する", new_user_registration_path, { class: "btn btn-secondary" }) %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="notifications">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+      </div>
+    </div>
+
+    <%= yield %>
+
+    <footer class="footer">
+      <p>© 2021 POTEPAN.INC.</p>
+    </footer>
+  </body>
+</html>

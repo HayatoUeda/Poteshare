@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>アカウント情報確認</h2>
+  <div class="form_group">
+    <label>プロフィール画像</label><br/>
+    <%= attachment_image_tag @profile, :image, format: 'jpeg', size: "100x100" %>
+  </div>
+  <div class="form_group">
+    <label>名前</label><br/>
+    <%= @profile.name %>
+  </div>
+  <div class="form_group">
+    <label>プロフィール紹介</label><br/>
+    <%= @profile.introduction %>
+  </div>
+</div>
